@@ -1,0 +1,22 @@
+form.style1 fieldset {
+	padding: 1em;
+	font:80%/1 sans-serif;
+}
+form.style1 label {
+	float:left;
+	width:15%;
+	margin-right:0.5em;
+	padding-top:0.2em;
+	text-align:right;
+	font-weight:bold;
+}
+form.style2 fieldset {
+	border:1px solid navy;
+}
+form.style2 legend {
+	padding: 0.2em 0.5em;
+	border:1px solid navy;
+	color:navy;
+	font-size:90%;
+	text-align:right;
+}
