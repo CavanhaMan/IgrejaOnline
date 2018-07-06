@@ -1,3 +1,4 @@
+-- drop database sistema;
 create database Sistema;
 use Sistema;
 -- phpMyAdmin SQL Dump
@@ -82,6 +83,7 @@ CREATE TABLE usuarios (
     cargo varchar(20)
 );
 -- Alter table usuarios change usuario usuario varchar(20) NOT NULL unique;
+
 select * from usuarios; 
 
 Create table Igreja(
@@ -93,7 +95,7 @@ Create table Igreja(
 );
 select * from igreja;
 
--- drop table calendario;
+ -- drop table calendario;
 Create table Calendario(
 	cod_ca int Primary Key Auto_Increment,
     titulo varchar (30),
@@ -106,12 +108,12 @@ Create table Calendario(
 );
 select * from calendario;
 
--- drop table agenda;
+  -- drop table agenda;
 Create table Agenda(
 	cod_ag int Primary Key Auto_Increment,
     titulo varchar (30),
     data char(10),
-    hora time, /*char(5),*/
+    hora time, 
 	endereco varchar(50), /*ALTERAR TABELA ADD ENDEREÇO*/
     bairro varchar(30),
 	cnpj char(15),
@@ -119,8 +121,6 @@ Create table Agenda(
 );
 select * from agenda;
 
--- Alter table Agenda     change data data char(10);
--- Alter table Calendario change data data char(10);
 /*===============================================================================
   =	 					  INSERINDO DADOS PARA TESTE							=
   ===============================================================================*/
@@ -128,11 +128,11 @@ select * from agenda;
 use Sistema;
 
 INSERT INTO usuarios (nome,usuario,senha,cpf,email,endereco,bairro,telefone,cargo) VALUES
-('Teste', 'teste', 'teste',	 '41234567185','teste@email.com','Rua 1 n 10','Centro','349123456','aaa'),
-('Edson', 'angoti', 'angoti',		 '12345678901','angoti@email.com','Rua 2 n 20','Umuarama','3432131234','Professor'),
-('Cavanha', 'cavanha', 'cavanha','03493757638','cavanhaman@hotmail.com','Rua Atilio Valentini','Santa Monica','992631234','Conselheiro UPA'),
-('Rodrigo C. Baltazar','Conselheiro da UPA','eu','03412345678','cavanhaman@hotmail.com','Rua Atilio Valentini 1444','Santa Monica','3432218098'),
-('Cavanha','Conselheiro UPA','cavanha','03493757638','cavanhaman@hotmail.com','Rua Atilio Valentini','Santa Monica','992631234');
+('Teste', 'teste', 'teste','41234567185','teste@email.com','Rua 1 n 10','Centro','349123456','aaa'),
+('Edson', 'angoti', 'angoti','12345678901','angoti@email.com','Rua 2 n 20','Umuarama','3432131234','Professor'),
+('Cavanha', 'cavanha', 'cavanha','03493747638','cavanhaman@hotmail.com','Rua Atilio Valentini 1444','Santa Monica','992631234','Diacono'),
+('Rodrigo C. Baltazar','eu','eu','03412345678','cavanhaman@hotmail.com','Rua Atilio Valentini 1444','Santa Monica','3432218098','Conselheiro da UPA'),
+('Cavanhaman','cavanhaman','cavanhaman','03493757639','cavanhaman@hotmail.com','Rua Atilio Valentini','Santa Monica','992631234','Conselheiro UPA');
 
 INSERT INTO Igreja (cnpj,nome,endereco,bairro,telefone) VALUES
 ('17792169000124','Igreja Presbiteriana Central de Uberlândia','Av Floriano Peixoto, 364','Centro','3432353061'),
@@ -141,25 +141,23 @@ INSERT INTO Igreja (cnpj,nome,endereco,bairro,telefone) VALUES
 ('18475384000164','SEGUNDA IGREJA PRESBITERIANA DE UBERLANDIA','R Angelo Zoccolli, 406','Centro','3432121234');
 
 INSERT INTO Calendario (titulo,data,hora,endereco,bairro,cnpj) VALUES
-('Culto','2021-12-18','19:00:00','adsfadsf','aaa','17792169000124'),
-('Culto Legal 1','2018-11-10','18:00','Radfiasufsa','Bairro','17792169000124'),
-('Culto Legal 2','2018-11-11','18:00','Radfiasufsa','Bairro','17792169000124'),
-('Culto Legal 3','2018-11-12','18:00','Radfiasufsa','Bairro','17792169000124'),
-('Culto Legal 4','2018-11-13','18:00','Radfiasufsa','Bairro','17792169000124'),
-('Culto Legal 5','2018-11-14','18:00','Radfiasufsa','Bairro','17792169000124');
+('Culto','18/12/2021','19:00:00','adsfadsf','aaa','17792169000124'),
+('Culto Legal 1','10/11/2018','18:00','Igreja 1','Bairro','17792169000124'),
+('Culto Legal 2','11/11/2018','19:00','Igreja 2','Bairro','17792169000128'),
+('Culto Legal 3','12/11/2018','14:00','Igreja 5','Bairro','17792169000124'),
+('Culto Legal 4','13/11/2018','13:00','Igreja 8','Bairro','17792169000124'),
+('Culto Legal 5','14/11/2018','10:00','Igreja 10','Bairro','17792169000128');
 
 INSERT INTO Agenda(titulo,data,hora,endereco,bairro,cnpj) VALUES
-('Cantata Coral','2018-08-18','18:00:00','Rua tal','seila','17792169000124'),
-('TESTEEEE','2018-01-12','19:00:00','Rua Atilio Valentini 1444, 301','Centro','17792169000124'),
-('IIIIIOOOOO','2018-12-25','18:00:00','Rua Atilio Valentini 1444, 301','teste','17792169000124'),
-('Cantata do Shrek','2018-12-31','12:00:00','Praça em frente ao Pantano do Shrek','Pantanoso','17792169000124'),
-('rrrrrrrrrrrr','1111-11-11','11:11:00','1111111111111111','11111111111','17792169000128'),
-('Abobrinha','2018-12-15','14:00:00','casa','bairro','17792169000128'),
-('Abobrinha','2018-12-15','14:00:00','casa','bairro','17792169000128');
+('Cantata Coral','18/082018','18:00:00','Rua tal','seila','17792169000124'),
+('TESTEEEE','12/01/2018','19:00:00','Rua Atilio Valentini 1444, 301','Centro','17792169000124'),
+('IIIIIOOOOO','25/12/2018','18:00:00','Rua Atilio Valentini 1444, 301','teste','17792169000124'),
+('Cantata do Shrek','31/12/2018','12:00:00','Praça em frente ao Pantano do Shrek','Pantanoso','17792169000124'),
+('Teste novo','11/11/1111','11:11:00','Rua 1111','bairro a','17792169000128'),
+('Abobrinha1','12/12/2018','14:00:00','casa','bairro b','17792169000128'),
+('Abobrinha2','18/12/2018','14:00:00','casa','bairro c','17792169000128');
 
-select * from Calendario;
 
--- Update Calendario set data = '16/12/1976' where cod_ca = 8;
 
 /*-------------------------------------------------------------------------------------*/
 -- drop table pastor;
