@@ -20,8 +20,18 @@ public class Agenda {
 	
 	public String getTitulo() {return titulo;}
 	public void setTitulo(String titulo) {this.titulo = titulo;}
-	public String getData() {return data;}
-	public void setData(String data) {this.data = data;}
+	public String getData() {
+		String[] s = data.split("/");
+		String novaData = s[2]+"/"+s[1]+"/"+s[0];
+		return novaData;
+		//return data;
+	}
+	public void setData(String data) {
+		//this.data = data;
+		String[] r = data.split("/");
+		String velhaData = r[2]+"/"+r[1]+"/"+r[0];
+		this.data = velhaData;
+	}
 	public String getHora() {return hora;}
 	public void setHora(String hora) {this.hora = hora;}
 	public String getEndereco() {return endereco;}
